@@ -1,0 +1,8 @@
+VPC created on Fri Dec 31 16:47:17 IST 2021 and VPC ID: vpc-0f83c09823d06c558
+VPC created on 2022年 9月26日 週一 14時38分22秒 HKT and VPC ID: vpc-0831142ef87debae0
+VPC created on 2022年 9月26日 週一 16時32分28秒 HKT and VPC ID: vpc-026764cdc97b1944f
+VPC created on 2022年 9月26日 週一 17時22分01秒 HKT and VPC ID: vpc-07c64c021598d8704
+VPC created on 2022年 9月26日 週一 17時50分58秒 HKT and VPC ID: vpc-04927ad0439f6ac98
+VPC created on 2022年 9月26日 週一 18時40分22秒 HKT and VPC ID: vpc-0304f45bdb2714c2a
+VPC created on 2022年 9月26日 週一 19時10分35秒 HKT and VPC ID: vpc-010959b6d05879b48
+VPC created on 2022年 9月26日 週一 20時44分24秒 HKT and VPC ID: vpc-0531eb9d42abb73e5
