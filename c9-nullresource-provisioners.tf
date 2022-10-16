@@ -3,39 +3,24 @@ resource "null_resource" "name" {
   depends_on = [module.ec2_public]
   # Connection Block for Provisioners to connect to EC2 Instance
   connection {
-    type     = "ssh"
-    host     = aws_eip.public_eip.public_ip    
-    user     = "ubuntu"
-    password = ""
-    private_key = file("../private-key/jenkins-server-tf-key.cer")
-  }  
-
-## File Provisioner: Copies the jenkins-server-tf-key.cer file to /tmp/jenkins-server-tf-key.cer
-  provisioner "file" {
-    source      = "../private-key/jenkins-server-tf-key.cer"
-    destination = "/tmp/jenkins-server-tf-key.cer"
+    type        = "ssh"
+    host        = aws_eip.public_eip.public_ip
+    user        = "ubuntu"
+    password    = ""
+    private_key = file("../private-key/3-tier-app-manager.cer")
   }
-## Remote Exec Provisioner: Using remote-exec provisioner fix the private key permissions on Host
+
+  ## File Provisioner: Copies the 3-tier-app-manager.cer file to /tmp/3-tier-app-manager.cer
+  provisioner "file" {
+    source      = "../private-key/3-tier-app-manager.cer"
+    destination = "/tmp/3-tier-app-manager.cer"
+  }
+  ## Remote Exec Provisioner: Using remote-exec provisioner fix the private key permissions on Host
   provisioner "remote-exec" {
     inline = [
-      "sudo chmod 400 /tmp/jenkins-server-tf-key.cer"
+      "sudo chmod 400 /tmp/3-tier-app-manager.cer"
     ]
   }
-## Local Exec Provisioner:  local-exec provisioner (Creation-Time Provisioner - Triggered during Create Resource)
-  provisioner "local-exec" {
-    command = "echo VPC created on `date` and VPC ID: ${module.vpc.vpc_id} >> creation-time-vpc-id.txt"
-    working_dir = "local-exec-output-files/"
-    #on_failure = continue
-  }
-## Local Exec Provisioner:  local-exec provisioner (Destroy-Time Provisioner - Triggered during deletion of Resource)
-/*  provisioner "local-exec" {
-    command = "echo Destroy time prov `date` >> destroy-time-prov.txt"
-    working_dir = "local-exec-output-files/"
-    when = destroy
-    #on_failure = continue
-  }  
-  */
-
 }
 
 # Creation Time Provisioners - By default they are created during resource creations (terraform apply)

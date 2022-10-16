@@ -5,7 +5,7 @@
 - Install terraform (https://www.terraform.io/downloads)
 - Install AWS-cli (https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - **Pre-Conditions-1:** Verify your AWS Credentials in **$HOME/.aws/credentials**
-- **Pre-Conditions-2:** Verify your key-pair "private-key/jenkins-server-tf-key.cer" in **./c9-nullresource-provisioners.tf**
+- **Pre-Conditions-2:** Verify your key-pair "private-key/3-tier-app-manager.cer" in **./c9-nullresource-provisioners.tf**
 
 # Project Run Commands
 
@@ -32,7 +32,7 @@ $ terraform destory
 
 - login ubuntu
 
-```$ ssh -i ../private-key/jenkins-server-tf-key.cer ubuntu@54.156.224.105```
+```$ ssh -i ../private-key/3-tier-app-manager.cer ubuntu@54.156.224.105```
 
 - jenkins service status
 
